@@ -11,7 +11,7 @@ Constraints: 1 <= s.length <= 104 and s consists of parentheses only '()[]{}'.
 */
 
 
-//Runtime: 2 ms & Memory Usage: 40 MB
+//Approach 1: Runtime: 2 ms & Memory Usage: 40 MB
 
 class Solution {
     public boolean isValid(String s) {
@@ -46,3 +46,41 @@ class Solution {
         }
     }
 }
+
+
+
+//Approach 2: Runtime: 1 ms & Memory Usage: 40.4 MB
+
+public boolean isValid(String s) {
+
+    if (s.isEmpty())
+        return true;
+
+    Stack<Character> stack = new Stack<Character>();
+    
+    for (int i = 0; i < s.length(); i++)
+    {
+        char curr = s.charAt(i);
+
+        if (curr == '{' || curr == '(' || curr == '[')
+            stack.push(curr);
+
+
+        if (curr == '}' || curr == ')' || curr == ']')
+        {
+            if (stack.isEmpty())
+                return false;
+
+            char top = stack.peek();
+            
+            if (curr == '}' && top == '{' || curr == ')' && top == '(' || curr == ']' && top == '[')
+                stack.pop();
+            else 
+                return false;
+        }
+
+    }
+
+    return stack.isEmpty();
+
+    }
