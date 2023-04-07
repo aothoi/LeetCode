@@ -16,12 +16,13 @@
 
 public ListNode reverseList(ListNode head) {
  
-  ListNode prev = null;
+  ListNode prevNode = null;
+  ListNode nextNode = null;
 
   while(head != null){
-    ListNode nextNode = head.next;
-    head.next = prev;
-    prev = head;
+    nextNode = head.next;
+    head.next = prevNode;
+    prevNode = head;
     head = nextNode;
   }
   
