@@ -16,6 +16,8 @@ Input: x = 120
 Output: 21
 */
 
+//Runtime: 2 ms & Memory: 39.9 MB
+
 class Solution {
     public int reverse(int x) {
         long res = 0;
