@@ -12,6 +12,8 @@ Example 2:
 Input: num = 0
 Output: 0 */
 
+//Runtime: 1 ms & Memory: 40.2 MB
+
 class Solution {
     public int addDigits(int num) {
         return 1 + (num - 1) % 9;
